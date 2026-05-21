@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>文字コード探偵「文字化け事件簿」</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- TITLE SCREEN -->
+        <div id="screen-title" class="screen active">
+            <div class="pixel-border">
+                <img id="title-img" src="./code_detective.png" alt="探偵ボクバナナ">
+            </div>
+            <h1 class="dungeon-title">CODE DETECTIVE</h1>
+            <h2>文字化け事件簿</h2>
+            <p class="subtitle">文字コードの謎を解き、暗号を解読しろ！</p>
+            <button class="dungeon-btn start-btn" onclick="startGame()">🔎 捜査を開始する</button>
+        </div>
+
+        <!-- GAME SCREEN -->
+        <div id="screen-game" class="screen">
+            <!-- ひらめきゲージ -->
+            <div id="time-bar-container"><div id="time-bar"></div></div>
+            
+            <div class="game-header">
+                <div class="stage-info" id="stage-title"></div>
+                <div class="timer-box" id="timer">--秒</div>
+            </div>
+            <div id="instruction-box" class="instruction-box"></div>
+            
+            <div id="panel-main" class="stage-panel active">
+                <div class="evidence-header">
+                    <span id="counter" class="counter-text"></span>
+                    <button id="hint-btn" class="dungeon-btn hint-btn" onclick="useHint()">💡 助手に聞く (Time -5秒)</button>
+                </div>
+                
+                <div class="evidence-card">
+                    <div id="evidence-text" class="evidence-text"></div>
+                </div>
+                
+                <div id="options" class="quiz-options"></div>
+            </div>
+
+            <div id="feedback-overlay" class="feedback-overlay hidden">
+                <div id="feedback-title" class="feedback-title"></div>
+                <p id="feedback-text" class="feedback-text"></p>
+                <button class="dungeon-btn" id="next-btn" onclick="closeFeedback()">次の証拠へ ▶</button>
+            </div>
+        </div>
+
+        <!-- CLEAR SCREEN -->
+        <div id="screen-clear" class="screen">
+            <img id="clear-img" src="./code_victory.png" alt="事件解決">
+            <h1 class="clear-title">CASE CLOSED!</h1>
+            <h2 id="rank-display" class="rank-display"></h2>
+            <p class="clear-subtitle">すべての文字化けを解読した！</p>
+            <div id="score-display" class="score-display"></div>
+            
+            <div class="password-box">
+                <p>🗝️ Google Classroomに「あいことば」を入力して報告しよう</p>
+                <p class="password-text" id="password-text"></p>
+            </div>
+
+            <div class="review-section">
+                <h3 class="review-title">📜 捜査調書（間違えた問題）</h3>
+                <div id="review-area"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
