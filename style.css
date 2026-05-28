@@ -166,3 +166,5 @@ body {
     .evidence-card { padding: 15px; font-size: 1.1rem; min-height: 80px; }
     .quiz-opt { padding: 12px; font-size: 1rem; }
 }
+
+.keyword-text, .password-text { user-select: text !important; -webkit-user-select: text !important; }
